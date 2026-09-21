@@ -64,4 +64,763 @@
     }
 
     @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px) scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* COEUR */
+
+    .heart {
+      font-size: 58px;
+      margin-bottom: 18px;
+
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+
+    }
+
+    /* TITRES */
+
+    h1 {
+      margin: 0 0 20px;
+
+      font-size: 29px;
+      line-height: 1.25;
+    }
+
+    .name {
+      color: #df5c86;
+    }
+
+    #question {
+
+      min-height: 90px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+      line-height: 1.5;
+
+      font-weight: 500;
+    }
+
+    /* BOUTONS */
+
+    .buttons {
+
+      position: relative;
+
+      width: 100%;
+      height: 145px;
+
+      margin-top: 20px;
+    }
+
+    button {
+
+      border: none;
+
+      border-radius: 999px;
+
+      padding: 15px 30px;
+
+      font-size: 17px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      -webkit-tap-highlight-color: transparent;
+
+      user-select: none;
+    }
+
+    /* YES */
+
+    #yes {
+
+      position: absolute;
+
+      left: 23%;
+      top: 10px;
+
+      color: white;
+
+      background: linear-gradient(
+        135deg,
+        #df5c86,
+        #e9789d
+      );
+
+      box-shadow:
+        0 10px 25px rgba(223,92,134,.3);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    #yes:hover {
+
+      transform: scale(1.08);
+
+      box-shadow:
+        0 15px 30px rgba(223,92,134,.4);
+    }
+
+    /* NO */
+
+    #no {
+
+      position: absolute;
+
+      left: 58%;
+      top: 10px;
+
+      color: #765966;
+
+      background: #f1e8ed;
+
+      transition:
+        left .15s ease,
+        top .15s ease;
+    }
+
+    .hint {
+
+      margin-top: 5px;
+
+      font-size: 12px;
+
+      color: #9b7d89;
+    }
+
+    /* MUSIQUE */
+
+    .music-player {
+
+      position: absolute;
+
+      bottom: 18px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 90%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      color: #795563;
+
+      font-size: 13px;
+    }
+
+    .music-player span {
+      white-space: nowrap;
+    }
+
+    audio {
+
+      width: 145px;
+      height: 35px;
+    }
+
+    /* MESSAGE FINAL */
+
+    #final {
+      display: none;
+
+      animation: finalAppear 1s ease;
+    }
+
+    @keyframes finalAppear {
+
+      from {
+        opacity: 0;
+        transform: scale(.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    #final p {
+
+      font-size: 19px;
+
+      line-height: 1.7;
+    }
+
+    .signature {
+
+      margin-top: 28px;
+
+      font-size: 18px;
+
+      font-weight: 700;
+
+      color: #df5c86;
+    }
+
+    /* COEURS FLOTTANTS */
+
+    .floating-heart {
+
+      position: fixed;
+
+      bottom: -40px;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      opacity: .7;
+
+      animation:
+        floatHeart linear forwards;
+    }
+
+    @keyframes floatHeart {
+
+      from {
+
+        transform:
+          translateY(0)
+          rotate(0deg);
+
+        opacity: .7;
+      }
+
+      to {
+
+        transform:
+          translateY(-115vh)
+          rotate(25deg);
+
+        opacity: 0;
+      }
+    }
+
+    /* PETITS COEURS EN ARRIERE-PLAN */
+
+    .background-heart {
+
+      position: fixed;
+
+      pointer-events: none;
+
+      opacity: .25;
+
+      animation:
+        backgroundFloat 8s ease-in-out infinite;
+    }
+
+    @keyframes backgroundFloat {
+
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* TELEPHONE */
+
+    @media (max-width:400px) {
+
+      .card {
+
+        min-height: 550px;
+
+        padding-left: 20px;
+        padding-right: 20px;
+
+        border-radius: 26px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      #question {
+        font-size: 20px;
+      }
+
+      button {
+        padding: 14px 26px;
+      }
+
+      audio {
+        width: 125px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- COEURS DECORATIFS -->
+
+  <div class="background-heart"
+       style="top:10%;left:8%;font-size:25px;">
+    💕
+  </div>
+
+  <div class="background-heart"
+       style="top:25%;right:8%;font-size:20px;">
+    💗
+  </div>
+
+  <div class="background-heart"
+       style="bottom:15%;left:10%;font-size:22px;">
+    💖
+  </div>
+
+  <div class="background-heart"
+       style="bottom:25%;right:12%;font-size:25px;">
+    ❤️
+  </div>
+
+
+  <!-- CARTE -->
+
+  <div class="card">
+
+
+    <!-- QUESTION -->
+
+    <section id="quiz">
+
+      <div class="heart">
+        💕
+      </div>
+
+
+      <h1>
+
+        Vanessa,
+
+        <br>
+
+        I have one little question
+        for you...
+
+      </h1>
+
+
+      <div id="question">
+
+        Do you want to be my girlfriend? ❤️
+
+      </div>
+
+
+      <div class="buttons"
+           id="buttons">
+
+        <button id="yes">
+
+          Yes ❤️
+
+        </button>
+
+
+        <button id="no">
+
+          No 🙈
+
+        </button>
+
+      </div>
+
+
+      <div class="hint">
+
+        Choose carefully, Vanessa... 😇
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section id="final">
+
+      <div class="heart">
+
+        💖
+
+      </div>
+
+
+      <h1>
+
+        I knew it...
+
+        <br>
+
+        <span class="name">
+          Vanessa ❤️
+        </span>
+
+      </h1>
+
+
+      <p>
+
+        So it's official...
+
+      </p>
+
+
+      <p>
+
+        <strong>
+
+          You're my girlfriend. 🥰
+
+        </strong>
+
+      </p>
+
+
+      <p>
+
+        And I hope we create
+
+        something beautiful
+
+        together.
+
+      </p>
+
+
+      <div class="signature">
+
+        ❤️ Us.
+
+      </div>
+
+    </section>
+
+
+    <!-- MUSIQUE -->
+
+    <div class="music-player">
+
+      <span>
+        🎵 Our song
+      </span>
+
+      <audio controls loop>
+
+        <source
+          src="romantic.mp3"
+          type="audio/mpeg">
+
+        Your browser does not support
+        audio.
+
+      </audio>
+
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+    /* ELEMENTS */
+
+    const yesButton =
+      document.getElementById("yes");
+
+    const noButton =
+      document.getElementById("no");
+
+    const buttons =
+      document.getElementById("buttons");
+
+    const quiz =
+      document.getElementById("quiz");
+
+    const final =
+      document.getElementById("final");
+
+
+    /*
+
+      BOUTON NO
+      Il s'échappe lorsqu'on
+      essaie de l'approcher.
+
+    */
+
+    function moveNo() {
+
+      const areaWidth =
+        buttons.clientWidth;
+
+      const areaHeight =
+        buttons.clientHeight;
+
+      const buttonWidth =
+        noButton.offsetWidth;
+
+      const buttonHeight =
+        noButton.offsetHeight;
+
+
+      const maxX =
+        Math.max(
+          0,
+          areaWidth - buttonWidth
+        );
+
+      const maxY =
+        Math.max(
+          0,
+          areaHeight - buttonHeight
+        );
+
+
+      const randomX =
+        Math.random() * maxX;
+
+      const randomY =
+        Math.random() * maxY;
+
+
+      noButton.style.left =
+        randomX + "px";
+
+      noButton.style.top =
+        randomY + "px";
+    }
+
+
+    /* ORDINATEUR */
+
+    noButton.addEventListener(
+      "mouseenter",
+      moveNo
+    );
+
+
+    /* TELEPHONE */
+
+    noButton.addEventListener(
+
+      "touchstart",
+
+      function(event) {
+
+        event.preventDefault();
+
+        moveNo();
+
+      },
+
+      {
+        passive: false
+      }
+
+    );
+
+
+    /*
+
+      Si Vanessa réussit
+      quand même à cliquer...
+
+    */
+
+    noButton.addEventListener(
+
+      "click",
+
+      function(event) {
+
+        event.preventDefault();
+
+        moveNo();
+
+      }
+
+    );
+
+
+    /* YES */
+
+    yesButton.addEventListener(
+
+      "click",
+
+      function() {
+
+        quiz.style.display =
+          "none";
+
+        final.style.display =
+          "block";
+
+        createHearts(35);
+
+        playMusic();
+
+      }
+
+    );
+
+
+    /*
+
+      MUSIQUE
+
+      On essaie de lancer
+      automatiquement la musique
+      après le clic sur YES.
+
+    */
+
+    function playMusic() {
+
+      const audio =
+        document.querySelector("audio");
+
+      audio.play().catch(
+        function() {}
+      );
+
+    }
+
+
+    /*
+
+      COEURS FLOTTANTS
+
+    */
+
+    function createHearts(number) {
+
+      const hearts = [
+
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "❤️",
+        "💘",
+        "✨"
+
+      ];
+
+
+      for (
+        let i = 0;
+        i < number;
+        i++
+      ) {
+
+        setTimeout(
+
+          function() {
+
+            const heart =
+              document.createElement("div");
+
+
+            heart.className =
+              "floating-heart";
+
+
+            heart.textContent =
+              hearts[
+                Math.floor(
+                  Math.random() *
+                  hearts.length
+                )
+              ];
+
+
+            heart.style.left =
+              Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+              (
+                16 +
+                Math.random() * 20
+              ) + "px";
+
+
+            heart.style.animationDuration =
+              (
+                4 +
+                Math.random() * 4
+              ) + "s";
+
+
+            document.body.appendChild(
+              heart
+            );
+
+
+            setTimeout(
+
+              function() {
+
+                heart.remove();
+
+              },
+
+              8500
+
+            );
+
+          },
+
+          i * 120
+
+        );
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
 ```
