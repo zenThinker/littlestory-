@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>A Little Question ❤️</title>
+  <title>For Vanessa ❤️</title>
 
   <style>
     * {
@@ -14,7 +15,9 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
 
       display: flex;
       align-items: center;
@@ -26,17 +29,20 @@
         linear-gradient(135deg, #fff0f5, #f8e4ec);
 
       color: #38242d;
+
       overflow: hidden;
     }
+
+    /* CARTE */
 
     .card {
       position: relative;
       z-index: 5;
 
       width: min(92%, 470px);
-      min-height: 560px;
+      min-height: 570px;
 
-      padding: 50px 28px 100px;
+      padding: 45px 28px 100px;
 
       display: flex;
       align-items: center;
@@ -44,477 +50,18 @@
 
       text-align: center;
 
-      background: rgba(255,255,255,0.87);
+      background: rgba(255,255,255,0.88);
+
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
 
       border-radius: 32px;
 
       box-shadow:
         0 25px 70px rgba(92,39,60,0.16);
+
+      animation: appear .8s ease;
     }
 
-    .heart {
-      font-size: 58px;
-      margin-bottom: 20px;
-
-      animation: heartbeat 1.5s infinite;
-    }
-
-    @keyframes heartbeat {
-      0%,100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.12);
-      }
-    }
-
-    h1 {
-      margin: 0 0 20px;
-      font-size: 29px;
-      line-height: 1.2;
-    }
-
-    #question {
-      min-height: 90px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 22px;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-
-    .buttons {
-      position: relative;
-      width: 100%;
-      height: 130px;
-      margin-top: 20px;
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-
-      padding: 15px 30px;
-
-      font-size: 17px;
-      font-weight: 700;
-
-      cursor: pointer;
-
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    #yes {
-      position: absolute;
-      left: 23%;
-      top: 10px;
-
-      color: white;
-      background: #df5c86;
-
-      box-shadow:
-        0 10px 25px rgba(223,92,134,0.3);
-
-      transition: transform .2s;
-    }
-
-    #yes:hover {
-      transform: scale(1.05);
-    }
-
-    #no {
-      position: absolute;
-      left: 58%;
-      top: 10px;
-
-      color: #765966;
-      background: #f1e8ed;
-
-      transition:
-        left .15s ease,
-        top .15s ease;
-    }
-
-    .hint {
-      margin-top: 5px;
-      font-size: 12px;
-      color: #9b7d89;
-    }
-
-    /* Lecteur audio */
-
-    .music-player {
-      position: absolute;
-
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 90%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      color: #795563;
-      font-size: 13px;
-    }
-
-    .music-player span {
-      white-space: nowrap;
-    }
-
-    audio {
-      width: 145px;
-      height: 35px;
-    }
-
-    /* Message final */
-
-    #final {
-      display: none;
-    }
-
-    #final p {
-      font-size: 19px;
-      line-height: 1.7;
-    }
-
-    .signature {
-      margin-top: 25px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    /* Cœurs */
-
-    .floating-heart {
-      position: fixed;
-      bottom: -40px;
-
-      z-index: 1;
-
-      pointer-events: none;
-
-      opacity: .7;
-
-      animation: floatHeart linear forwards;
-    }
-
-    @keyframes floatHeart {
-      from {
-        transform:
-          translateY(0)
-          rotate(0deg);
-
-        opacity: .7;
-      }
-
-      to {
-        transform:
-          translateY(-115vh)
-          rotate(25deg);
-
-        opacity: 0;
-      }
-    }
-
-    @media (max-width:400px) {
-
-      .card {
-        min-height: 540px;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      h1 {
-        font-size: 25px;
-      }
-
-      #question {
-        font-size: 20px;
-      }
-
-      button {
-        padding: 14px 26px;
-      }
-
-      audio {
-        width: 125px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="card">
-
-    <!-- QUESTION -->
-
-    <section id="quiz">
-
-      <div class="heart">
-        💕
-      </div>
-
-      <h1>
-        I have one little question for you...
-      </h1>
-
-      <div id="question">
-        Do you want to be my girlfriend? ❤️
-      </div>
-
-      <div class="buttons" id="buttons">
-
-        <button id="yes">
-          Yes ❤️
-        </button>
-
-        <button id="no">
-          No 🙈
-        </button>
-
-      </div>
-
-      <div class="hint">
-        Choose carefully... 😇
-      </div>
-
-    </section>
-
-
-    <!-- FINAL -->
-
-    <section id="final">
-
-      <div class="heart">
-        💖
-      </div>
-
-      <h1>
-        I knew it... ❤️
-      </h1>
-
-      <p>
-        So it's official...
-      </p>
-
-      <p>
-        <strong>
-          You're my girlfriend. 🥰
-        </strong>
-      </p>
-
-      <p>
-        And I hope we create something beautiful together.
-      </p>
-
-      <div class="signature">
-        ❤️ Us.
-      </div>
-
-    </section>
-
-
-    <!-- MUSIQUE -->
-
-    <div class="music-player">
-
-      <span>🎵 Our song</span>
-
-      <audio controls loop>
-        <source src="romantic.mp3" type="audio/mpeg">
-        Your browser does not support audio.
-      </audio>
-
-    </div>
-
-  </div>
-
-
-  <script>
-
-    const yesButton =
-      document.getElementById("yes");
-
-    const noButton =
-      document.getElementById("no");
-
-    const buttons =
-      document.getElementById("buttons");
-
-    const quiz =
-      document.getElementById("quiz");
-
-    const final =
-      document.getElementById("final");
-
-
-    /*
-      Le bouton NO s'échappe
-    */
-
-    function moveNo() {
-
-      const areaWidth =
-        buttons.clientWidth;
-
-      const areaHeight =
-        buttons.clientHeight;
-
-      const buttonWidth =
-        noButton.offsetWidth;
-
-      const buttonHeight =
-        noButton.offsetHeight;
-
-
-      const maxX =
-        areaWidth - buttonWidth;
-
-      const maxY =
-        areaHeight - buttonHeight;
-
-
-      const randomX =
-        Math.random() * maxX;
-
-      const randomY =
-        Math.random() * maxY;
-
-
-      noButton.style.left =
-        randomX + "px";
-
-      noButton.style.top =
-        randomY + "px";
-    }
-
-
-    /*
-      Ordinateur
-    */
-
-    noButton.addEventListener(
-      "mouseenter",
-      moveNo
-    );
-
-
-    /*
-      Téléphone
-    */
-
-    noButton.addEventListener(
-      "touchstart",
-      function(event) {
-
-        event.preventDefault();
-
-        moveNo();
-
-      },
-      { passive:false }
-    );
-
-
-    /*
-      Si elle réussit quand même à cliquer
-    */
-
-    noButton.addEventListener(
-      "click",
-      function(event) {
-
-        event.preventDefault();
-
-        moveNo();
-
-      }
-    );
-
-
-    /*
-      YES
-    */
-
-    yesButton.addEventListener(
-      "click",
-      function() {
-
-        quiz.style.display = "none";
-
-        final.style.display = "block";
-
-        createHearts(20);
-
-      }
-    );
-
-
-    /*
-      Cœurs flottants
-    */
-
-    function createHearts(number) {
-
-      const hearts = [
-        "💕",
-        "💗",
-        "💖",
-        "💓",
-        "❤️",
-        "✨"
-      ];
-
-
-      for(let i = 0; i < number; i++) {
-
-        setTimeout(function() {
-
-          const heart =
-            document.createElement("div");
-
-          heart.className =
-            "floating-heart";
-
-          heart.textContent =
-            hearts[
-              Math.floor(
-                Math.random() *
-                hearts.length
-              )
-            ];
-
-          heart.style.left =
-            Math.random() * 100 + "vw";
-
-          heart.style.fontSize =
-            (16 + Math.random() * 18) + "px";
-
-          heart.style.animationDuration =
-            (4 + Math.random() * 4) + "s";
-
-          document.body.appendChild(heart);
-
-          setTimeout(function() {
-            heart.remove();
-          }, 8500);
-
-        }, i * 150);
-
-      }
-    }
-
-  </script>
-
-</body>
-</html>
+    @keyframes appear {
+```
